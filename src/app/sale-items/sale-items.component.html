@@ -1,0 +1,35 @@
+<div class="container-fluid" style="padding-top:60px;padding-left:60px;padding-right:60px;">  
+  <div class="card-group">  
+    <div class="card">  
+      <div class="card-header">
+          <h2 style="text-align:center">This Sale</h2>
+      </div>
+      <div class="card-body">
+          <div class="overflow-auto" >
+<table class="tableBodyScroll table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Sale ID</th>
+      <th scope="col">Sale Date</th>
+      <th scope="col">Stock Name</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let sale_item of sale_items" scope="col">
+        <th scope="col">{{sale_item.SALE_ID}}</th>
+        <th scope="col">{{sale_item.SALE_DATE}}</th>
+        <th scope="col">{{sale_item.STOCK_NAME}}</th>
+        <th scope="col">{{sale_item.ITEM_NAME}}</th>
+        <th scope="col">{{sale_item.QUANTITY}}</th>
+        <th scope="col">{{sale_item.SELLING_PRICE}}</th>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>

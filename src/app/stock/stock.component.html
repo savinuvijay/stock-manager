@@ -1,0 +1,75 @@
+<div class="container-fluid" style="padding-top:60px;padding-left:60px;padding-right:60px;">  
+  <div class="card-group">  
+    <div class="card">  
+      <div class="card-header">
+          <h2 style="text-align:center">Stock</h2>
+      </div>
+      <div class="card-body">
+<div class="overflow-auto" >
+  <table class="tableBodyScroll table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Purchase Date</th>
+        <th scope="col">Entry Date</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stock of stocks" scope="col">
+        <td>{{stock.STOCK_ID}}</td> 
+        <td>{{stock.STOCK_NAME}}</td>
+        <td>{{stock.PURCHASE_DATE}}</td>
+        <td>{{stock.ENTRY_DATE}}</td>
+        <td><button class="btn btn-primary" type="button" (click)="ViewStockItem(stock.STOCK_ID)" > View Items </button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addStockModal"> Add Stock </button>
+<button class="btn btn-primary" type="button" (click)="Goback()">Back </button>
+
+</div>
+</div>
+</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="addStockModal" tabindex="-1" role="dialog" aria-labelledby="addStockModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addStockModalLabel">Add Stock</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="AddStockForm" id="AddStockForm" (ngSubmit)="nextAddItems(AddStockForm.value)" class="needs-validation" novalidate>  
+          <!-- <h1 style="text-align:center">Add Stock</h1>   -->
+        
+          <div class="form-group">
+            <label for="formControlStockName">Stock Name</label>               
+            <input type="text" class="form-control" placeholder="Stock Name" formControlName="STOCK_NAME" required>  
+          </div>
+          <div class="form-group">
+            <label for="formControlReceivedDate">Received Date</label>               
+            <input type="date" class="form-control" placeholder="Received Date "  formControlName="PURCHASE_DATE" required>  
+          </div>  
+          <div class="form-group">
+            <label for="formControlEntryDate">Entry Date</label>               
+            <input type="date" class="form-control" placeholder="Entry Date" [value] = "currentDate | date:'yyyy-MM-dd'" formControlName="ENTRY_DATE">  
+          </div>    
+          <!-- <button type="submit" class="btn btn-primary px-4">Next</button>   -->
+        </form>  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" >Cancel</button>
+        <button type="submit" form="AddStockForm" class="btn btn-primary" >Next</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ 

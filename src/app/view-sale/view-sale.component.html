@@ -1,0 +1,80 @@
+<div class="container-fluid" style="padding-top:60px;padding-left:60px;padding-right:60px;">  
+  <div class="card-group">  
+    <div class="card">  
+      <div class="card-header">
+          <h2 style="text-align:center">Sales</h2>
+      </div>
+      <div class="card-body">
+        <div class="overflow-auto" >
+        <table class="tableBodyScroll table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Sale ID</th>
+              <th scope="col">Total Price</th>
+              <th scope="col">Sale Date</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sale of sales" scope="col">
+              <td>{{sale.SALE_ID}}</td>
+              <td>{{sale.TOTAL_PRICE}}</td>
+              <td>{{sale.SALE_DATE}}</td>
+              <td><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addSaleModal" (click)="getSaleItems(sale.SALE_ID, sale.TOTAL_PRICE)">View Details</button></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade bd-example-modal-lg" id="addSaleModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addItemModalLabel">Sale</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="overflow-auto" >
+          <table class="tableBodyScroll table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Sale ID</th>
+                <th scope="col" style="text-align:center">Sale Date</th>
+                <th scope="col" style="text-align:center">Stock Name</th>
+                <th scope="col" style="text-align:center">Item Name</th>
+                <th scope="col" style="text-align:right">Quantity</th>
+                <th scope="col" style="text-align:right">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let sale_item of sale_items" scope="col">
+                  <th scope="col">{{sale_item.SALE_ID}}</th>
+                  <th scope="col" style="text-align:center">{{sale_item.SALE_DATE | date : "dd-MM-y" }}</th>
+                  <th scope="col" style="text-align:center">{{sale_item.STOCK_NAME}}</th>
+                  <th scope="col" style="text-align:center">{{sale_item.ITEM_NAME}}</th>
+                  <th scope="col" style="text-align:right">{{sale_item.QUANTITY}}</th>
+                  <th scope="col" style="text-align:right">{{sale_item.SELLING_PRICE}}</th>
+              </tr>
+              <tr>
+                <th scope="row">Grand Total</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><h3 style="text-align:right">{{grand_total}}</h3></td>
+            </tr>
+            </tbody>
+          </table>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

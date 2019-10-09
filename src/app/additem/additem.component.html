@@ -1,0 +1,46 @@
+<!-- <form>
+  <div class="form-group">
+    <label for="NewItem">Item Namr</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+</form> -->
+<!-- <form name="form" (ngSubmit)="AddThisItem()" #f="ngForm">
+  <div class="input-group mb-3">  
+    <div class="input-group-prepend">  
+      <span class="input-group-text"><i class="icon-user"></i></span>  
+    </div>  
+    <input type="text" name="NAME" [(ngModel)]="itemModel.NAME" class="form-control sty1" placeholder="Item Name" required>  
+  </div>
+  <div class="row">  
+    <div class="col-6">  
+      <button type="submit" class="btn btn-primary px-4">Add </button>  
+    </div>  
+  </div>  
+</form> -->
+
+
+<!-- <div class="form-group">
+  <label for="newItem">Item to be added</label>
+  <input type="text" class="form-control" id="newitem" placeholder="Item Name">
+</div>
+<button class="btn btn-primary" type="submit" (click)="addThisItem()">Add</button> -->
+
+<div class="container" style="padding-top:40px;">  
+  <div class="row">  
+    <div class="col-md-6 mx-auto">  
+      <div class="card mx-4">  
+        <div class="card-body p-4">  
+          <form [formGroup]="ItemForm" (ngSubmit)="AddItem(ItemForm.value)">  
+            <h1 style="text-align:center">Add Item</h1>  
+          
+            <div class="input-group mb-3">  
+             
+              <input type="text" class="form-control" placeholder="Item Name"  formControlName="NAME">  
+            </div>  
+            <button type="submit" class="btn btn-primary px-4">Add Item</button>  
+          </form>  
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+</div>  
