@@ -28,7 +28,10 @@ export class LoginService {
     debugger;  
      var a =this.loginUrl+'UserLogin';  
    return this.http.post<any>(this.loginUrl+'userlogin',model,HttpOptions);  
-  }  
+  } 
+  changePassword(model: any){
+    return this.http.put<any>(this.loginUrl+'changePassword',model,HttpOptions); 
+  }
   //  CreateUser(register:Register)  
   //  {  
   //   const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };  
