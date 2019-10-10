@@ -3,6 +3,7 @@ import { ItemService } from "../item.service";
 import { Item } from '../item';
 import { NgForm, Validators, FormBuilder } from '@angular/forms';
 import { CompileShallowModuleMetadata } from '@angular/compiler';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item',
@@ -14,7 +15,7 @@ export class ItemComponent implements OnInit {
   items : Item[];
   item : Item;
   ItemForm: any;
-  constructor(private itemService : ItemService, private formbulider: FormBuilder) { }
+  constructor(private itemService : ItemService, private formbulider: FormBuilder, private router : Router) { }
 
   ngOnInit() {
     this.getItems();
@@ -45,5 +46,8 @@ export class ItemComponent implements OnInit {
       form.reset();
       this.ngOnInit();
     });    
-  }    
+  }  
+  Goback():void{
+    this.router.navigate(['/dashboard']);
+  }
 }

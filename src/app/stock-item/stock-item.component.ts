@@ -63,6 +63,7 @@ export class StockItemComponent implements OnInit {
       STOCK_ID: 0,
       ITEM_ID: 0,
       ITEM_NAME: "",
+      INITIAL_QUANTITY: 0,
       QUANTITY: 0,
       COST_PRICE: 0.0,
       SELLING_PRICE: 0.0
@@ -74,6 +75,7 @@ export class StockItemComponent implements OnInit {
     var splitted = data.ITEM_ID.split(" ", 2); 
     stock_item.ITEM_ID = splitted[0];
     stock_item.ITEM_NAME = splitted[1];
+    stock_item.INITIAL_QUANTITY = data.QUANTITY;
     stock_item.QUANTITY = data.QUANTITY;
     stock_item.COST_PRICE = data.COST_PRICE;
     stock_item.SELLING_PRICE = data.SELLING_PRICE;

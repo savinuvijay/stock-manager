@@ -31,7 +31,7 @@
                   <button type="submit" class="btn btn-primary px-4">Login</button>  
                 </div>  
                 <div class="col-6 text-right">  
-                  <button type="button" class="btn btn-link px-0">Forgot password?</button>  
+                  <button type="button" class="btn btn-link px-0" data-toggle="modal" data-target="#changePasswordModal">Change password?</button>  
                 </div>  
               </div>  
                 
@@ -41,4 +41,49 @@
       </div>  
     </div>  
   </div>  
-</div>  
+</div>
+<!-- Modal   -->
+<div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="changePasswordModalLabel">Change Password</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="changePasswordForm" id="changePasswordForm" (ngSubmit)="changePassword(changePasswordForm)">  
+          <!-- <h1 style="text-align:center">Add Stock</h1>   -->
+        
+          <div class="form-group">
+            <label for="formControlUserName">User Name</label>               
+            <input type="text" class="form-control" placeholder="User Name"  formControlName="USERNAME">  
+          </div>
+          <div class="form-group">
+            <label for="formControlPassword">Old Password</label>               
+            <input type="password" class="form-control" placeholder="Old Password "  formControlName="PASSWORD">  
+          </div>  
+          <div class="form-group">
+            <label for="formControlNewPassword">New Password</label>               
+            <input type="password" class="form-control" placeholder="Entry Date"  formControlName="NewPASSWORD">  
+          </div>
+          <div class="form-group">
+            <label for="formControlreEnterPassword">Re-Enter Password</label>               
+            <input type="password" class="form-control" placeholder="Re-Enter Password"  formControlName="ReEnterPassword">  
+          </div>     
+          <div>  
+            <p style="color:#E92626;font-size:20px;font-weight:normal" Class="success" align="left">  
+              {{errorMessage}}  
+            </p>  
+          </div>   
+          <!-- <button type="submit" class="btn btn-primary px-4">Next</button>   -->
+        </form>  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="submit" form="changePasswordForm" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

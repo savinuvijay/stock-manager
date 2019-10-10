@@ -162,5 +162,7 @@ export class SaleComponent implements OnInit {
       }
    );
   }
-
+  Goback():void{
+    this.router.navigate(['/dashboard']);
+  }
 }

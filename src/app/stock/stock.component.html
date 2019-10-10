@@ -14,6 +14,7 @@
         <th scope="col">Purchase Date</th>
         <th scope="col">Entry Date</th>
         <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -22,7 +23,8 @@
         <td>{{stock.STOCK_NAME}}</td>
         <td>{{stock.PURCHASE_DATE}}</td>
         <td>{{stock.ENTRY_DATE}}</td>
-        <td><button class="btn btn-primary" type="button" (click)="ViewStockItem(stock.STOCK_ID)" > View Items </button></td>
+        <td><button class="btn btn-primary" type="button"  data-toggle="modal" data-target="#viewStockModal" (click)="getStockDetails(stock.STOCK_ID, stock.STOCK_NAME)" > View Details </button></td>
+        <td><button class="btn btn-primary" type="button" (click)="ViewStockItem(stock.STOCK_ID)" > Update Items </button></td>
       </tr>
     </tbody>
   </table>
@@ -67,6 +69,68 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" >Cancel</button>
         <button type="submit" form="AddStockForm" class="btn btn-primary" >Next</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="viewStockModal" tabindex="-1" role="dialog" aria-labelledby="viewStockModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addStockModalLabel">Stock Details : {{currentStockName}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="overflow-auto" >
+              <table class="tableBodyScroll table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">ITEM ID</th>
+                    <th scope="col">ITEM NAME</th>
+                    <th scope="col">INITIAL QUANTITY</th>
+                    <th scope="col">REMAINING QUANTITY</th>
+                    <th scope="col">COST PRICE</th>
+                    <th scope="col">SELLING PRICE</th>
+                    <th scope="col">PROFIT / LOSS</th>
+                    <!-- <th scope="col"></th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let stock_item of stock_items_profit" scope="col">
+                    <td>{{stock_item.ITEM_ID}}</td>
+                    <td>{{stock_item.ITEM_NAME}}</td>
+                    <td>{{stock_item.INITIAL_QUANTITY}}</td>
+                    <td>{{stock_item.QUANTITY}}</td>
+                    <td>₹ {{stock_item.COST_PRICE}}</td>
+                    <td>₹ {{stock_item.SELLING_PRICE}}</td>
+                    <td *ngIf="profitFlag == '1'"><h4><font color="green">₹ {{stock_item.PROFIT}}</font></h4></td>
+                    <td *ngIf="profitFlag == '2'"><h4><font color="red">₹ {{stock_item.PROFIT}}</font></h4></td>
+                    <td *ngIf="profitFlag == '3'"><h4><font color="black">₹ {{stock_item.PROFIT}}</font></h4></td>
+                    <!-- <td><button class="btn btn-danger" type="submit" (click)="removeItem(item.ID)">Delete Item</button></td> -->
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                        <td><h4>TOTAL</h4></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td *ngIf="totalProfitFlag == '1'"><h3><font color="green">₹ {{totalProfit}}</font></h3></td>
+                        <td *ngIf="totalProfitFlag == '2'"><h3><font color="red">₹ {{totalProfit}}</font></h3></td>
+                        <td *ngIf="totalProfitFlag == '3'"><h3><font color="black">₹ {{totalProfit}}</font></h3></td>
+                      </tr>
+                </tfoot>
+              </table>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" data-dismiss="modal" >Close</button>
       </div>
     </div>
   </div>

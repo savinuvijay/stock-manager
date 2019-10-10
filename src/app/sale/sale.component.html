@@ -126,7 +126,7 @@
               <label for="formControlSelectItem">Item</label>
               <select class="form-control" id="formControlSelectItem" ng-model="selectedItem" formControlName="STOCK_ITEM_ID" (change)="selectedItem($event.target.value)">
                 <option *ngFor="let item of stock_items; let i = index" [value]="stock_items[i].STOCK_ITEM_ID" type="number">
-                    {{stock_items[i].ITEM_NAME}}
+                    {{stock_items[i].ITEM_NAME}}s
                 </option>
               </select>
             </div>
