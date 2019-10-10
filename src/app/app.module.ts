@@ -15,7 +15,6 @@ import * as $ from 'jquery';
 import * as bootstrap from "bootstrap";
 import { SaleItemsComponent } from './sale-items/sale-items.component';
 import { ViewSaleComponent } from './view-sale/view-sale.component';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -35,8 +34,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    AngularFontAwesomeModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
