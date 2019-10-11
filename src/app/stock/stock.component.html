@@ -107,9 +107,9 @@
                     <td>{{stock_item.QUANTITY}}</td>
                     <td>₹ {{stock_item.COST_PRICE}}</td>
                     <td>₹ {{stock_item.SELLING_PRICE}}</td>
-                    <td *ngIf="profitFlag == '1'"><h4><font color="green">₹ {{stock_item.PROFIT}}</font></h4></td>
-                    <td *ngIf="profitFlag == '2'"><h4><font color="red">₹ {{stock_item.PROFIT}}</font></h4></td>
-                    <td *ngIf="profitFlag == '3'"><h4><font color="black">₹ {{stock_item.PROFIT}}</font></h4></td>
+                    <td *ngIf="profitFlag == 1"><h4><font color="green">₹ {{stock_item.PROFIT}}</font></h4></td>
+                    <td *ngIf="profitFlag == 2"><h4><font color="red">₹ {{stock_item.PROFIT}}</font></h4></td>
+                    <td *ngIf="profitFlag == 3"><h4><font color="black">₹ {{stock_item.PROFIT}}</font></h4></td>
                     <!-- <td><button class="btn btn-danger" type="submit" (click)="removeItem(item.ID)">Delete Item</button></td> -->
                   </tr>
                 </tbody>
@@ -121,9 +121,9 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td *ngIf="totalProfitFlag == '1'"><h3><font color="green">₹ {{totalProfit}}</font></h3></td>
-                        <td *ngIf="totalProfitFlag == '2'"><h3><font color="red">₹ {{totalProfit}}</font></h3></td>
-                        <td *ngIf="totalProfitFlag == '3'"><h3><font color="black">₹ {{totalProfit}}</font></h3></td>
+                        <td *ngIf="totalProfitFlag == 1"><h3><font color="green">₹ {{totalProfit}}</font></h3></td>
+                        <td *ngIf="totalProfitFlag == 2"><h3><font color="red">₹ {{totalProfit}}</font></h3></td>
+                        <td *ngIf="totalProfitFlag == 3"><h3><font color="black">₹ {{totalProfit}}</font></h3></td>
                       </tr>
                 </tfoot>
               </table>

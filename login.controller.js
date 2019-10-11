@@ -16,6 +16,7 @@ module.exports = function(app,db){
             if(!user) return res.status(404).send('Item not found');
             else {
                 var message = {status : "failed"};
+				//console.log("password : " + user.password);
                 if(req.body.password == user.password){
                     message.status = "success";
                 }
