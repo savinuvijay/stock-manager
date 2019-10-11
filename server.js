@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(cors());
 
 const sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('stockDatabase.db');
+var db = new sqlite3.Database('../database/stockDatabase.db');
 
 app.use(express.static('./dist/stock-manager'));
 app.get('/app/*', (req, res) => {
