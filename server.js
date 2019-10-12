@@ -14,12 +14,14 @@ app.get('/app/*', (req, res) => {
     res.sendFile(path.join(__dirname,'dist/stock-manager/index.html'))
 });
 
-require('./items.controller')(app,db);
-require('./login.controller')(app,db);
-require('./stock.controller')(app,db);
-require('./stock_item.controller')(app,db);
-require('./sale_item.controller')(app,db);
-require('./sale.controller')(app,db);
+var controller = 'APIControllers';
+
+require('./'+controller+'/items.controller')(app,db);
+require('./'+controller+'/login.controller')(app,db);
+require('./'+controller+'/stock.controller')(app,db);
+require('./'+controller+'/stock_item.controller')(app,db);
+require('./'+controller+'/sale_item.controller')(app,db);
+require('./'+controller+'/sale.controller')(app,db);
 
 app.listen(process.env.PORT || '8085', ()=> {
     console.log('working on 8085');
