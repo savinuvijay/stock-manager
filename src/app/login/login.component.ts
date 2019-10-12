@@ -85,11 +85,13 @@ export class LoginComponent implements OnInit {
         console.log(data);    
         debugger;    
         if(data.status=="success")    
-        {       
+        { 
+          this.loginService.isLoggedIn = true;  
           this.router.navigate(['/dashboard']);    
           debugger;    
         }    
         else{    
+          this.loginService.isLoggedIn = false;  
           this.errorMessage = "Wrong Password!!";    
         }    
       },    

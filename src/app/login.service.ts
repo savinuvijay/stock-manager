@@ -17,6 +17,14 @@ export class LoginService {
   private loginUrl = this.baseUrl + '/login';
   token : string;  
   header : any;  
+
+  private _isLoggedIn = false;
+  set isLoggedIn(status : boolean){
+    this._isLoggedIn = status;
+  }
+  get isLoggedIn(){
+    return this._isLoggedIn;
+  }
   constructor(private http: HttpClient) {   
   
     this.loginUrl = 'http://localhost:8085/api/login/';  

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Sale } from '../sale';
 import { SaleService } from '../sale.service';
 import { SaleItemService } from '../sale-item.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-sale',
@@ -13,7 +14,9 @@ export class ViewSaleComponent implements OnInit {
   sales : Sale[];
   sale_items : any[];
   grand_total : number;
-  constructor(private saleService: SaleService, private saleItemService: SaleItemService) { }
+  constructor(private saleService: SaleService, 
+    private saleItemService: SaleItemService,
+    private router : Router) { }
 
   ngOnInit() {
     this.getSales()
@@ -30,6 +33,9 @@ export class ViewSaleComponent implements OnInit {
         this.sale_items = sale_items;
         this.grand_total = total;
       });
+  }
+  Goback():void{
+    this.router.navigate(['/dashboard']);
   }
 
 }
