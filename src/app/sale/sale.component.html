@@ -36,17 +36,18 @@
                         <td></td>
                       </tr>
                       <tr>
-                          <th scope="row">Grand Total</th>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td><h3 style="text-align:right">{{grandTotal}}</h3></td>
+                        <th scope="row">Grand Total</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><h3 style="text-align:right">{{grandTotal}}</h3></td>
                       </tr>
                     </tbody>
                   </table>
                 <!--/div-->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Proceed</button>
+                <button type="button" class="btn btn-primary" (click)="Goback()" >Back</button>
             </div>  
           </div>  
         </div>  
@@ -126,7 +127,7 @@
               <label for="formControlSelectItem">Item</label>
               <select class="form-control" id="formControlSelectItem" ng-model="selectedItem" formControlName="STOCK_ITEM_ID" (change)="selectedItem($event.target.value)">
                 <option *ngFor="let item of stock_items; let i = index" [value]="stock_items[i].STOCK_ITEM_ID" type="number">
-                    {{stock_items[i].ITEM_NAME}}s
+                    {{stock_items[i].ITEM_NAME}}
                 </option>
               </select>
             </div>

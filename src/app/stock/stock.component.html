@@ -14,7 +14,7 @@
         <th scope="col">Purchase Date</th>
         <th scope="col">Entry Date</th>
         <th scope="col"></th>
-        <th scope="col"></th>
+        <!-- <th scope="col"></th> -->
       </tr>
     </thead>
     <tbody>
@@ -24,7 +24,7 @@
         <td>{{stock.PURCHASE_DATE}}</td>
         <td>{{stock.ENTRY_DATE}}</td>
         <td><button class="btn btn-primary" type="button"  data-toggle="modal" data-target="#viewStockModal" (click)="getStockDetails(stock.STOCK_ID, stock.STOCK_NAME)" > View Details </button></td>
-        <td><button class="btn btn-primary" type="button" (click)="ViewStockItem(stock.STOCK_ID)" > Update Items </button></td>
+        <!-- <td><button class="btn btn-primary" type="button" (click)="ViewStockItem(stock.STOCK_ID)" > Update Items </button></td> -->
       </tr>
     </tbody>
   </table>
